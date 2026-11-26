@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { RouteNumber } from '../src/domain/value-objects/RouteNumber';
-import { DepartureDelay } from '../src/domain/value-objects/DepartureDelay';
+import DelayHighlight from './DelayHighlight';
 
 export interface DepartureCardProps {
   routeId: number | string;
@@ -11,7 +11,6 @@ export interface DepartureCardProps {
 
 export function DepartureCard({ routeId, headsign, theoreticalTime, delayInSeconds }: DepartureCardProps) {
   const route = new RouteNumber(routeId);
-  const delay = new DepartureDelay(delayInSeconds);
 
   return (
     <View style={styles.card}>
@@ -22,7 +21,7 @@ export function DepartureCard({ routeId, headsign, theoreticalTime, delayInSecon
         <Text style={styles.destination}>{headsign || 'Brak kierunku'}</Text>
         <View style={styles.timeRow}>
           <Text style={styles.time}>Plan: {theoreticalTime || '--:--'}</Text>
-          <Text>{delay.formattedText}</Text>
+          <DelayHighlight delayInSeconds={delayInSeconds} />
         </View>
       </View>
     </View>
