@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Stop Scout",
+    "slug": "stop-scout-mobile",
+    "version": "1.0.0",
+    "scheme": "stopscout",
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
